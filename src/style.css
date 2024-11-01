@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --title-color: #342330;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Montserrat'
+}
+
+strong {
+    color: var(--title-color);
+}
+
+body {
+    display: grid;
+    place-items: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--title-color);
+    font-family: 'Libre Baskerville', serif;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.bg-image {
+    z-index: -1;
+    --image-blur: 8px;
+    position: absolute;
+    width: calc(100vw + (var(--image-blur) * 2));
+    top: calc(-1 * var(--image-blur));
+    left: calc(-1 * var(--image-blur));
+    filter: blur(var(--image-blur));
+    -webkit-filter: blur(var(--image-blur));
+    height: calc(100vh + (var(--image-blur) * 2));
+    background-image: url('/bgimg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
