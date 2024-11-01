@@ -35,7 +35,7 @@
     <div class="heading">
       <div style="display: flex; flex-direction: row; align-items: center; gap: 1rem">
         <img class="heading__img"
-             src="/shirt-owl-splash.png"
+             src="/shirt-owl-splash-tiny.png"
              alt="logo van mpw">
         <h1>Miniature<br /> Painting<br /> Workshops</h1>
       </div>
