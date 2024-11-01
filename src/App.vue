@@ -4,8 +4,8 @@
   import { ShopsList, EventsList } from './api/datatypes';
   import WorkshopList from './components/WorkshopList.vue';
 
-  const shops = ref<ShopsList>();
-  const events = ref<EventsList>();
+  const shops = ref<ShopsList | null>(null);
+  const events = ref<EventsList | null>(null);
 
   onMounted(async () => {
     shops.value = await fetchData('shops', 'list');
