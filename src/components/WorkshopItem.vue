@@ -24,7 +24,7 @@
                 Workshop date: {{ dates[0].flat_date }}
             </p>
             <template v-else>
-                <p><strong>Workshop dates:</strong></p>
+                <p><strong>Course dates:</strong></p>
                 <ul>
                     <li v-for="date in dates">
                         {{ date.flat_date }}
