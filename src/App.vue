@@ -15,8 +15,8 @@ onMounted(async () => {
 
   const concatShops = { data: [...priveShops.data, ...businessShops.data] };
   const concatEvents = { data: [...priveEvents.data, ...businessEvents.data] };
-  shops.value = concatShops;
-  events.value = concatEvents;
+  shops.value = concatShops as ShopsList;
+  events.value = concatEvents as EventsList;
 });
 
 const mappedEvents = computed(() => {
