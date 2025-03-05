@@ -1,32 +1,39 @@
 <script setup lang="ts">
-  import { ref, onMounted, computed } from 'vue';
-  import { fetchData } from './api/api';
-  import { ShopsList, EventsList } from './api/datatypes';
-  import WorkshopList from './components/WorkshopList.vue';
+import { ref, onMounted, computed } from 'vue';
+import { fetchData } from './api/api';
+import { ShopsList, EventsList } from './api/datatypes';
+import WorkshopList from './components/WorkshopList.vue';
 
-  const shops = ref<ShopsList | null>(null);
-  const events = ref<EventsList | null>(null);
+const shops = ref<ShopsList | null>(null);
+const events = ref<EventsList | null>(null);
 
-  onMounted(async () => {
-    shops.value = await fetchData('shops', 'list');
-    events.value = await fetchData('events', 'list');
-  });
+onMounted(async () => {
+  const priveShops: ShopsList = await fetchData('prive')('shops', 'list');
+  const priveEvents: EventsList = await fetchData('prive')('events', 'list');
+  const businessShops: ShopsList = await fetchData('zakelijk')('shops', 'list');
+  const businessEvents: EventsList = await fetchData('zakelijk')('events', 'list');
 
-  const mappedEvents = computed(() => {
-    if (shops.value && events.value) {
-      return events.value.data.map((curr) => {
-        const { id, name, dates, tickets } = curr;
-        const shopUrl = shops.value!.data.find(shop => curr.shops.includes(shop.id))?.full_url;
-        return {
-          id,
-          name,
-          dates,
-          tickets,
-          shopUrl
-        }
-      });
-    }
-  })
+  const concatShops = { data: [...priveShops.data, ...businessShops.data] };
+  const concatEvents = { data: [...priveEvents.data, ...businessEvents.data] };
+  shops.value = concatShops;
+  events.value = concatEvents;
+});
+
+const mappedEvents = computed(() => {
+  if (shops.value && events.value) {
+    return events.value.data.map((curr) => {
+      const { id, name, dates, tickets } = curr;
+      const shopUrl = shops.value!.data.find(shop => curr.shops.includes(shop.id))?.full_url;
+      return {
+        id,
+        name,
+        dates,
+        tickets,
+        shopUrl
+      }
+    });
+  }
+})
 
 </script>
 
