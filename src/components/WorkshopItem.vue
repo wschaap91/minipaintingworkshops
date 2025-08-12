@@ -43,6 +43,7 @@
 
 <style scoped lang="scss">
 .item {
+    text-align: start;
     background-color: #F7F3EE;
     border-radius: 0.5rem;
     filter: drop-shadow(0rem 0rem 0.25rem rgba(91, 65, 51, 0.2));

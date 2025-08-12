@@ -36,7 +36,7 @@
     width: 100%;
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(4, 1fr);
 
     @container page-wrapper (width < 1500px) {
         grid-template-columns: repeat(3, 1fr);
@@ -48,6 +48,6 @@
 
     @container page-wrapper (width < 750px) {
         grid-template-columns: 1fr;
-    }
+    } */
 }
 </style>
