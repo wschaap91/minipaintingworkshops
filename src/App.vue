@@ -191,7 +191,7 @@ const computedComponent = computed(() => {
     transition: outline-offset 0.1s ease-in-out;
   }
 
-  &:focus-within {
+  &:has(*:focus-visible) {
     .active {
       outline-style: solid;
       outline-offset: var(--outline-offset-focus); 
