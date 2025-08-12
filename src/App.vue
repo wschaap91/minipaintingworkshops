@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, defineAsyncComponent } from 'vue';
+import { ref, onMounted, computed  } from 'vue';
 import { fetchData } from './api/api';
 import { ShopsList, EventsList } from './api/datatypes';
 import WorkshopList from './components/WorkshopList.vue';
